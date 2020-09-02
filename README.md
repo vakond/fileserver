@@ -16,9 +16,10 @@ The first launch creates empty config file with comments. It should be populated
 
 *    Shutdown:
 
-         Ctrl+C or killall fileserver
+         Ctrl+C or killall server
 
 *    Simple tests (requires client):
 
          client files
          client download
+	 
