@@ -1,0 +1,9 @@
+[package]
+name = "checksum"
+version = "0.1.0"
+authors = ["Vasily Kondratyev <wassily.kondratiev@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+md5 = "~0"
+rand = "~0"

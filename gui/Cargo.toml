@@ -1,0 +1,9 @@
+[package]
+name = "gui"
+version = "0.1.0"
+authors = ["Vasily Kondratyev <wassily.kondratiev@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "~1"
+gtk = "~0"

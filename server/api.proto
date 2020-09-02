@@ -1,0 +1,22 @@
+syntax = "proto3";
+package api;
+
+message Input {
+    string filename = 1;
+}
+
+message ListOutput {
+    repeated string filename = 1;
+}
+
+message DownloadOutput {
+    int64 index = 1;
+    double progress = 2;
+    bytes contents = 3;
+    string md5sum = 4;
+}
+
+service File {
+    rpc List (Input) returns (ListOutput) {}
+    rpc Download (Input) returns (stream DownloadOutput) {}
+}

@@ -1,0 +1,17 @@
+[package]
+name = "client"
+version = "0.1.0"
+authors = ["Vasily Kondratyev <wassily.kondratiev@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "~1"
+checksum = { path = "../checksum" }
+clap = "~2"
+futures = "~0"
+tokio = "~0"
+tonic = "~0"
+prost = "~0"
+
+[build-dependencies]
+tonic-build = "~0"
