@@ -11,6 +11,18 @@ use tonic::{transport::Channel, Request};
 
 const SERVER: &str = "http://[::1]:50051";
 
+/// Calls RPC `stop` which should shutdown the server.
+pub async fn stop() -> anyhow::Result<()> {
+    let channel = Channel::from_static(SERVER).connect().await?;
+    let mut caller = FileClient::new(channel);
+
+    let req = Request::new(Input::default());
+    let _ = caller.stop(req).await;
+    // No need to handle errors here: server must shutdown anyway
+
+    Ok(())
+}
+
 /// Calls RPC `list` and prints all tags.
 pub async fn list() -> anyhow::Result<()> {
     let channel = Channel::from_static(SERVER).connect().await?;

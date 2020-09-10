@@ -10,6 +10,7 @@ checksum = { path = "../checksum" }
 clap = "~2"
 confy = "~0"
 futures = "~0"
+nix = "~0"
 tokio = "~0"
 tonic = "~0"
 prost = "~0"

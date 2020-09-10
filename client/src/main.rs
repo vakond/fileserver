@@ -4,6 +4,7 @@ mod api;
 mod client;
 mod download;
 mod files;
+mod stop;
 
 use anyhow;
 use clap::{App, Arg, SubCommand};
@@ -18,6 +19,10 @@ fn main() {
 /// Dispatches commands.
 fn run(mut app: App) -> anyhow::Result<()> {
     let matches = app.clone().get_matches();
+
+    if matches.subcommand_matches(stop::CMD).is_some() {
+        return stop::execute();
+    }
 
     if matches.subcommand_matches(files::CMD).is_some() {
         return files::execute();
@@ -37,6 +42,7 @@ fn application() -> App<'static, 'static> {
     App::new("client")
         .about("Sends requests to the fileserver")
         .version("0.1")
+        .subcommand(SubCommand::with_name(stop::CMD).about(stop::ABOUT))
         .subcommand(SubCommand::with_name(files::CMD).about(files::ABOUT))
         .subcommand(
             SubCommand::with_name(download::CMD)

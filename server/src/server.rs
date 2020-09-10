@@ -1,6 +1,6 @@
 //! Server.
 
-use crate::api::{file_server, DownloadOutput, Input, ListOutput};
+use crate::api::{file_server, DownloadOutput, EmptyOutput, Input, ListOutput};
 use crate::config::Config;
 use std::fs::{self, File};
 use std::io::Read;
@@ -21,6 +21,7 @@ pub async fn serve(cfg: Config) -> anyhow::Result<()> {
     Ok(())
 }
 
+type EmptyResult = Result<Response<EmptyOutput>, Status>;
 type ListResult = Result<Response<ListOutput>, Status>;
 type DownloadStream = mpsc::Receiver<Result<DownloadOutput, Status>>;
 type DownloadResult = Result<Response<DownloadStream>, Status>;
@@ -39,6 +40,17 @@ impl FileImpl {
 #[tonic::async_trait]
 impl file_server::File for FileImpl {
     type DownloadStream = DownloadStream;
+
+    /// Handles command "client stop".
+    async fn stop(&self, _: Request<Input>) -> EmptyResult {
+        use nix::sys::signal::{self, Signal};
+        use nix::unistd::Pid;
+
+        // Send SIGTERM to current process
+        signal::kill(Pid::this(), Signal::SIGINT).expect("shutdown process gracefully");
+
+        Ok(Response::new(EmptyOutput {}))
+    }
 
     /// Handles command "client list".
     async fn list(&self, _: Request<Input>) -> ListResult {

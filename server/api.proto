@@ -5,6 +5,9 @@ message Input {
     string filename = 1;
 }
 
+message EmptyOutput {
+}
+
 message ListOutput {
     repeated string filename = 1;
 }
@@ -17,6 +20,7 @@ message DownloadOutput {
 }
 
 service File {
+    rpc Stop (Input) returns (EmptyOutput) {}
     rpc List (Input) returns (ListOutput) {}
     rpc Download (Input) returns (stream DownloadOutput) {}
 }

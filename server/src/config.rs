@@ -31,7 +31,7 @@ pub fn load() -> anyhow::Result<Config> {
     let filename = PathBuf::from(FILENAME);
 
     if !filename.exists() {
-        return Err(anyhow!("file {} already exists", FILENAME));
+        return Err(anyhow!("file {} does not exist", FILENAME));
     }
 
     let cfg = confy::load_path(filename)?;
