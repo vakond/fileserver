@@ -1,3 +1,5 @@
+//! App.
+
 use gtk::*;
 
 const NAME: &str = "FileServer";

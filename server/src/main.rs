@@ -1,4 +1,5 @@
-/// Server.
+//! Server.
+
 mod api;
 mod config;
 mod init;

@@ -1,4 +1,4 @@
-// download
+//! Download.
 
 use crate::client;
 use anyhow;

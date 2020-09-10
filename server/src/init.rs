@@ -1,4 +1,4 @@
-// init
+//! Init.
 
 use crate::config;
 use anyhow;

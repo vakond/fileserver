@@ -1,4 +1,5 @@
-/// Client.
+//! Client.
+
 mod api;
 mod client;
 mod download;

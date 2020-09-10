@@ -1,4 +1,4 @@
-// client
+//! Client.
 
 use crate::api::{file_client::FileClient, Input};
 use anyhow::anyhow;
@@ -18,9 +18,7 @@ pub async fn list() -> anyhow::Result<()> {
 
     let req = Request::new(Input::default());
     let resp = caller.list(req).await?.into_inner();
-    for f in resp.filename {
-        println!("{}", f);
-    }
+    resp.filename.iter().for_each(|f| println!("{}", f));
 
     Ok(())
 }

@@ -1,4 +1,4 @@
-// server
+//! Server.
 
 use crate::api::{file_server, DownloadOutput, Input, ListOutput};
 use crate::config::Config;

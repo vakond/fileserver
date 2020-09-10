@@ -1,4 +1,4 @@
-// config
+//! Config.
 
 use anyhow::anyhow;
 use checksum;

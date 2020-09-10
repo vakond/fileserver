@@ -1,4 +1,4 @@
-// start
+//! Start.
 
 use crate::{config, server};
 use tokio::runtime::Runtime;

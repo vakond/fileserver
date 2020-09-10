@@ -1,4 +1,4 @@
-// files
+//! Files.
 
 use crate::client;
 use anyhow;
