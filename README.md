@@ -1,7 +1,5 @@
 # File server
 
-https://bilet.mos.ru/ticket/details/?ticketId=50300628&pinCode=623578
-
 ### Simple file server
 
 This **toy project** is a simple gRPC file server which can be used to organize and distribute files. It explores gRPC stream capabilities.
