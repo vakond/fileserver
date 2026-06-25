@@ -1,7 +1,5 @@
 # File server
 
-https://goslitmuz.tn-cloud.ru/ticket/B4DE4F8C5F82E072854ADF25A779AA8DD011CD2C#
-
 ### Simple file server
 
 This **toy project** is a simple gRPC file server which can be used to organize and distribute files. It explores gRPC stream capabilities.
